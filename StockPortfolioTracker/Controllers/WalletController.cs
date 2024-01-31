@@ -20,11 +20,19 @@ namespace StockPortfolioTracker.Controllers
         }
 
         // GET: Wallet
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Int32 walletId = 1)
         {
-              return _context.Wallet != null ? 
-                          View(await _context.Wallet.ToListAsync()) :
-                          Problem("Entity set 'StockPortfolioTrackerContext.Wallet'  is null.");
+            var wallets = await _context.Wallet.ToListAsync();
+            var wallet = wallets.Where(wallet => wallet.Id == walletId).FirstOrDefault();
+            if (wallet != null)
+            {
+                    var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
+                    var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
+                    var walletViewProxy = new WalletViewProxy(wallet, wallets_x_stocks.ToArray(), stocks.ToArray());
+                    return View(walletViewProxy);
+            }
+            else
+                return Problem("This wallet doesn't exists.");
         }
 
         // GET: Wallet/Details/5
@@ -56,15 +64,15 @@ namespace StockPortfolioTracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] Wallet wallet)
+        public async Task<IActionResult> Create([Bind("Id")] WalletStockViewProxy walletStockView)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(wallet);
+                _context.Add(walletStockView);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(wallet);
+            return View(walletStockView);
         }
 
         // GET: Wallet/Edit/5

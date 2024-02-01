@@ -11485,11 +11485,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\source\\repos\\StockPortfolioTracker\\StockPortfolioTracker\\StockPortfolioTracker.csproj",
+      "projectUniqueName": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\StockPortfolioTracker.csproj",
       "projectName": "StockPortfolioTracker",
-      "projectPath": "C:\\Users\\admin\\source\\repos\\StockPortfolioTracker\\StockPortfolioTracker\\StockPortfolioTracker.csproj",
+      "projectPath": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\StockPortfolioTracker.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\source\\repos\\StockPortfolioTracker\\StockPortfolioTracker\\obj\\",
+      "outputPath": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

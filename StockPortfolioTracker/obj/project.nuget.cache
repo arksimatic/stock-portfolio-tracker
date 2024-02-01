@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VsGk2ltjt3PCpttFmMNX68rcANOonFFmZIJFW4tVg5lPZi+/MEHgo++cJSjAS0kcf4Rjw9S3plv4nESDdutUXQ==",
+  "dgSpecHash": "ETjoYuBPnFCFdT6Cd2caSCbpoV+jou7i3D9EduYzr50NGYnDvGRfMxKxXv3iBIb9ivLawSpuMyo6OkNoXlUj2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\source\\repos\\StockPortfolioTracker\\StockPortfolioTracker\\StockPortfolioTracker.csproj",
+  "projectFilePath": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\StockPortfolioTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

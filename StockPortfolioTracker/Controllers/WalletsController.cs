@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Models;
+using StockPortfolioTracker.ViewModels;
 
 namespace StockPortfolioTracker.Controllers
 {
@@ -15,12 +16,12 @@ namespace StockPortfolioTracker.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<WalletViewProxy> walletsViewProxy = new();
+            List<WalletViewModel> walletsViewProxy = new();
             foreach (Wallet wallet in await _context.Wallet.ToListAsync())
             {
                 var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
                 var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
-                walletsViewProxy.Add(new WalletViewProxy(wallet, wallets_x_stocks.ToArray(), stocks.ToArray()));
+                walletsViewProxy.Add(new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray()));
             }
             return View(walletsViewProxy);
         }

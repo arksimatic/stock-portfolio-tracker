@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Models;
+using StockPortfolioTracker.ViewModels;
 
 namespace StockPortfolioTracker.Controllers
 {
     public class WalletController : Controller
     {
         private readonly StockPortfolioTrackerContext _context;
-
+        private Int32 _walletId;
         public WalletController(StockPortfolioTrackerContext context)
         {
             _context = context;
@@ -22,13 +23,15 @@ namespace StockPortfolioTracker.Controllers
         // GET: Wallet
         public async Task<IActionResult> Index(Int32 walletId = 1)
         {
+            _walletId = walletId;
+
             var wallets = await _context.Wallet.ToListAsync();
-            var wallet = wallets.Where(wallet => wallet.Id == walletId).FirstOrDefault();
+            var wallet = wallets.Where(wallet => wallet.Id == _walletId).FirstOrDefault();
             if (wallet != null)
             {
                     var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
                     var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
-                    var walletViewProxy = new WalletViewProxy(wallet, wallets_x_stocks.ToArray(), stocks.ToArray());
+                    var walletViewProxy = new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray());
                     return View(walletViewProxy);
             }
             else
@@ -64,11 +67,30 @@ namespace StockPortfolioTracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] WalletStockViewProxy walletStockView)
+        public async Task<IActionResult> Create([Bind("Id,StockExchange,Ticker,Currency,Shares,AverageShareCost")] WalletStockViewModel walletStockView)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(walletStockView);
+                var stock = _context.Stock.Where(stock => stock.Ticker == walletStockView.Ticker && stock.StockExchange == walletStockView.StockExchange).FirstOrDefault();
+                if (stock == null)
+                {
+                    stock = new Stock()
+                    {
+                        StockExchange = walletStockView.StockExchange,
+                        Ticker = walletStockView.Ticker,
+                        Currency = walletStockView.Currency
+                    };
+                    _context.Add(stock);
+                    await _context.SaveChangesAsync();
+                }
+                Wallet_X_Stock wallet_X_tock = new Wallet_X_Stock()
+                {
+                    WalletId = _walletId,
+                    StockId = stock.Id,
+                    Shares = walletStockView.Shares,
+                    AverageShareCost = walletStockView.AverageShareCost
+                };
+                _context.Add(wallet_X_tock);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

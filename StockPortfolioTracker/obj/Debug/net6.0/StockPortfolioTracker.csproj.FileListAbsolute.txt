@@ -562,3 +562,4 @@ C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\re
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\StockPortfolioTracker.pdb
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\StockPortfolioTracker.genruntimeconfig.cache
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\ref\StockPortfolioTracker.dll
+C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\StockPortfolioTracker.sourcelink.json

@@ -4,23 +4,17 @@ namespace StockPortfolioTracker.ViewModels
 {
     public class WalletViewModel
     {
-        private Wallet _wallet;
-        private Wallet_X_Stock[] _wallets_x_stocks;
-        private Stock[] _stocks;
-        public int Id => _wallet.Id;
+        public int WalletId { get; set; }
         public string Name { get; set;}
         public WalletStockViewModel[] WalletStocks { get; private set; }
         public WalletViewModel(Wallet wallet, Wallet_X_Stock[] wallets_x_stocks, Stock[] stocks)
         {
-            _wallet = wallet;
-            _wallets_x_stocks = wallets_x_stocks;
-            _stocks = stocks;
+            WalletId = wallet.Id;
+            Name = wallet.Name;
 
-            Name = _wallet.Name;
-
-            WalletStockViewModel[] walletStocks = new WalletStockViewModel[_wallets_x_stocks.Length];
-            for (int i = 0; i < _wallets_x_stocks.Length; i++)
-                walletStocks[i] = new WalletStockViewModel(_wallets_x_stocks[i], _stocks[i]);
+            WalletStockViewModel[] walletStocks = new WalletStockViewModel[wallets_x_stocks.Length];
+            for(int i = 0; i < wallets_x_stocks.Length; i++)
+                walletStocks[i] = new WalletStockViewModel(wallets_x_stocks[i], stocks.Where(stock => stock.Id == wallets_x_stocks[i].StockId).First()); //TODO: what if stock doesn't exists?
             WalletStocks = walletStocks;
         }
     }

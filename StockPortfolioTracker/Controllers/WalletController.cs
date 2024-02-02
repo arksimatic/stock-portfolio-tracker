@@ -14,19 +14,16 @@ namespace StockPortfolioTracker.Controllers
     public class WalletController : Controller
     {
         private readonly StockPortfolioTrackerContext _context;
-        private Int32 _walletId;
         public WalletController(StockPortfolioTrackerContext context)
         {
             _context = context;
         }
 
-        // GET: Wallet
-        public async Task<IActionResult> Index(Int32 walletId = 1)
+        #region Index
+        public async Task<IActionResult> Index(Int32 walletId)
         {
-            _walletId = walletId;
-
             var wallets = await _context.Wallet.ToListAsync();
-            var wallet = wallets.Where(wallet => wallet.Id == _walletId).FirstOrDefault();
+            var wallet = wallets.Where(wallet => wallet.Id == walletId).FirstOrDefault();
             if (wallet != null)
             {
                     var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
@@ -37,154 +34,101 @@ namespace StockPortfolioTracker.Controllers
             else
                 return Problem("This wallet doesn't exists.");
         }
+        #endregion Index
 
-        // GET: Wallet/Details/5
-        public async Task<IActionResult> Details(int? id)
+        #region Create
+        public IActionResult Create(Int32 walletId)
         {
-            if (id == null || _context.Wallet == null)
-            {
-                return NotFound();
-            }
-
-            var wallet = await _context.Wallet
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (wallet == null)
-            {
-                return NotFound();
-            }
-
-            return View(wallet);
+            return View(new WalletStockViewModel() { WalletId = walletId});
         }
 
-        // GET: Wallet/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Wallet/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,StockExchange,Ticker,Currency,Shares,AverageShareCost")] WalletStockViewModel walletStockView)
+        public async Task<IActionResult> Create(WalletStockViewModel walletStockViewModel)
         {
             if (ModelState.IsValid)
             {
-                var stock = _context.Stock.Where(stock => stock.Ticker == walletStockView.Ticker && stock.StockExchange == walletStockView.StockExchange).FirstOrDefault();
+                var stock = _context.Stock.Where(stock => stock.Ticker == walletStockViewModel.Ticker && stock.StockExchange == walletStockViewModel.StockExchange).FirstOrDefault();
                 if (stock == null)
                 {
                     stock = new Stock()
                     {
-                        StockExchange = walletStockView.StockExchange,
-                        Ticker = walletStockView.Ticker,
-                        Currency = walletStockView.Currency
+                        StockExchange = walletStockViewModel.StockExchange,
+                        Ticker = walletStockViewModel.Ticker,
                     };
                     _context.Add(stock);
                     await _context.SaveChangesAsync();
                 }
                 Wallet_X_Stock wallet_X_tock = new Wallet_X_Stock()
                 {
-                    WalletId = _walletId,
+                    WalletId = walletStockViewModel.WalletId,
                     StockId = stock.Id,
-                    Shares = walletStockView.Shares,
-                    AverageShareCost = walletStockView.AverageShareCost
+                    Shares = walletStockViewModel.Shares,
+                    AverageShareCost = walletStockViewModel.AverageShareCost
                 };
                 _context.Add(wallet_X_tock);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToWallet(walletStockViewModel.WalletId);
             }
-            return View(walletStockView);
+            return View(walletStockViewModel);
         }
+        #endregion Create
 
-        // GET: Wallet/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        #region Update
+        public async Task<IActionResult> Edit(Int32 wallet_x_stockId)
         {
-            if (id == null || _context.Wallet == null)
-            {
-                return NotFound();
-            }
-
-            var wallet = await _context.Wallet.FindAsync(id);
-            if (wallet == null)
-            {
-                return NotFound();
-            }
-            return View(wallet);
+            var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(wallet_x_stockId);
+            var stock = await _context.Stock.FindAsync(wallet_x_stock.StockId); //TODO: what if stock doesn't exists?
+            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock);
+            return View(walletStockViewModel);
         }
 
-        // POST: Wallet/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] Wallet wallet)
+        public async Task<IActionResult> Edit(WalletStockViewModel walletStockViewModel)
         {
-            if (id != wallet.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
+                var stock = _context.Stock.Where(stock => stock.Ticker == walletStockViewModel.Ticker && stock.StockExchange == walletStockViewModel.StockExchange).FirstOrDefault();
+                if(stock != null) // TODO: what if actually null?
                 {
-                    _context.Update(wallet);
+                    var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(walletStockViewModel.Wallet_X_StockId);
+                    wallet_x_stock.Shares = walletStockViewModel.Shares;
+                    wallet_x_stock.AverageShareCost = walletStockViewModel.AverageShareCost;
+                    _context.Update(wallet_x_stock);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!WalletExists(wallet.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(wallet);
-        }
 
-        // GET: Wallet/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+                return RedirectToWallet(walletStockViewModel.WalletId);
+            }
+            return View(walletStockViewModel);
+        }
+        #endregion Update
+
+        #region Delete
+        public async Task<IActionResult> Delete(Int32 wallet_x_stockId)
         {
-            if (id == null || _context.Wallet == null)
-            {
-                return NotFound();
-            }
-
-            var wallet = await _context.Wallet
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (wallet == null)
-            {
-                return NotFound();
-            }
-
-            return View(wallet);
+            var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(wallet_x_stockId);
+            var stock = await _context.Stock.FindAsync(wallet_x_stock.StockId); //TODO: what if stock doesn't exists?
+            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock);
+            return View(walletStockViewModel);
         }
 
-        // POST: Wallet/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(WalletStockViewModel walletStockViewModel)
         {
-            if (_context.Wallet == null)
-            {
-                return Problem("Entity set 'StockPortfolioTrackerContext.Wallet'  is null.");
-            }
-            var wallet = await _context.Wallet.FindAsync(id);
-            if (wallet != null)
-            {
-                _context.Wallet.Remove(wallet);
-            }
-            
+            var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(walletStockViewModel.Wallet_X_StockId);
+            _context.Wallet_X_Stock.Remove(wallet_x_stock);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToWallet(walletStockViewModel.WalletId);
         }
+        #endregion Delete
 
+        public IActionResult RedirectToWallet(Int32 walletId)
+        {
+            return RedirectToAction("Index", "Wallet", new { walletId });
+        }
         private bool WalletExists(int id)
         {
           return (_context.Wallet?.Any(e => e.Id == id)).GetValueOrDefault();

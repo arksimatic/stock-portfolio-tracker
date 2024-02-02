@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" asp-route-walletId="@Model.WalletId">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -21,9 +21,8 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.DisplayText)
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-wallet_x_stockId="@item.Wallet_X_StockId">Edit</a> |
+                <a asp-action="Delete" asp-route-wallet_x_stockId="@item.Wallet_X_StockId">Delete</a>
             </td>
         </tr>
 }

@@ -1,9 +1,5 @@
 ﻿@model StockPortfolioTracker.Models.WalletStockViewModel
 
-@{
-    ViewData["Title"] = "Create";
-}
-
 <h1>Add stock to wallet</h1>
 
 <hr />
@@ -18,15 +14,13 @@
                 <label asp-for="Ticker" class="control-label"></label>
                 <input asp-for="Ticker" class="form-control" />
                 <span asp-validation-for="Ticker" class="text-danger"></span>
-                <label asp-for="Currency" class="control-label"></label>
-                <input asp-for="Currency" class="form-control" />
-                <span asp-validation-for="Currency" class="text-danger"></span>
                 <label asp-for="Shares" class="control-label"></label>
                 <input asp-for="Shares" class="form-control" />
                 <span asp-validation-for="Shares" class="text-danger"></span>
                 <label asp-for="AverageShareCost" class="control-label"></label>
                 <input asp-for="AverageShareCost" class="form-control" />
                 <span asp-validation-for="AverageShareCost" class="text-danger"></span>
+                <input type="hidden" asp-for="@Model.WalletId" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -10,6 +10,8 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = StockPortfolioTracker
 build_property.RootNamespace = StockPortfolioTracker
 build_property.ProjectDir = C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
@@ -78,10 +80,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Projects/.NET/StockPortfolioTracker/StockPortfolioTracker/Views/Wallet/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FsbGV0XERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Projects/.NET/StockPortfolioTracker/StockPortfolioTracker/Views/Wallet/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2FsbGV0XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Projects/.NET/StockPortfolioTracker/StockPortfolioTracker/Views/Wallet/Edit.cshtml]

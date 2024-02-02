@@ -14,6 +14,8 @@ namespace StockPortfolioTracker.Controllers
         {
             _context = context;
         }
+
+        #region Index
         public async Task<IActionResult> Index()
         {
             List<WalletViewModel> walletsViewProxy = new();
@@ -25,28 +27,12 @@ namespace StockPortfolioTracker.Controllers
             }
             return View(walletsViewProxy);
         }
+        #endregion Index
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Wallet wallet)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(wallet);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(wallet);
-        }
-
+        #region Detailes
         public async Task<IActionResult> Details(int? id)
         {
-            if(id == null)
+            if (id == null)
                 return Problem("Wallet doesn't exists");
             else
                 return RedirectToWallet(id.Value);
@@ -64,14 +50,34 @@ namespace StockPortfolioTracker.Controllers
 
             //return View(wallet);
         }
-
-        // Action to redirect to a specific wallet
         public IActionResult RedirectToWallet(int walletId)
         {
             // Redirect to WalletController's Details action with the specified wallet ID
-            return RedirectToAction("Index", "Wallet", new { id = walletId });
+            return RedirectToAction("Index", "Wallet", new { walletId = walletId });
+        }
+        #endregion Detailes
+
+        #region Create
+        public IActionResult Create()
+        {
+            return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,Name")] Wallet wallet)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(wallet);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(wallet);
+        }
+        #endregion Create
+
+        #region Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Wallet == null)
@@ -102,7 +108,7 @@ namespace StockPortfolioTracker.Controllers
                 {
                     _context.Update(wallet);
                     await _context.SaveChangesAsync();
-                }
+                } 
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!WalletExists(wallet.Id))
@@ -118,7 +124,9 @@ namespace StockPortfolioTracker.Controllers
             }
             return View(wallet);
         }
+        #endregion Edit
 
+        #region Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Wallet == null)
@@ -153,6 +161,7 @@ namespace StockPortfolioTracker.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        #endregion Delete
 
         private bool WalletExists(int id)
         {

@@ -1,4 +1,4 @@
-﻿@model StockPortfolioTracker.Models.Wallet
+﻿@model StockPortfolioTracker.Models.WalletStockViewModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -13,8 +13,10 @@
     <dl class="row">
     </dl>
     
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
+    <form asp-action="Delete">>
+        <input type="hidden" asp-for="@Model.WalletId" />
+        <input type="hidden" asp-for="@Model.Wallet_X_StockId" />
+        <input type="hidden" asp-for="@Model.StockId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

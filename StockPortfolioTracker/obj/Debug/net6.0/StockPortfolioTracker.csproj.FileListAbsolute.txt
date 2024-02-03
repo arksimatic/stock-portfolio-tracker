@@ -563,3 +563,5 @@ C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\St
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\StockPortfolioTracker.genruntimeconfig.cache
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\ref\StockPortfolioTracker.dll
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\StockPortfolioTracker.sourcelink.json
+C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\bin\Debug\net6.0\Syncfusion.EJ2.dll
+C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\bin\Debug\net6.0\Syncfusion.Licensing.dll

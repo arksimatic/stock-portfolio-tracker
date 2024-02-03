@@ -1,19 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@* <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron text-center">
+    <h1 class="display-4">Stock Portfolio Tracker</h1>
+    <p class="lead">Simple app for showing data from your stock wallets</p>
+    <hr class="my-4">
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" asp-controller="Wallets" role="button">View Wallets</a>
+    </p>
 </div>
- *@
-
-@*  <p>
-    <a asp-action="Create">Create New</a>
-</p> *@
-
-<h2>Stock Portfolio Tracker</h2>
-
-<h4>Simple app for showing data from your stock wallets</h4>
-
-<a asp-controller="Wallets" class="btn btn-primary">Wallets</a>

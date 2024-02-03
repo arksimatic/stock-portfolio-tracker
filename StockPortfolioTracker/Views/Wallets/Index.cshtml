@@ -1,42 +1,83 @@
 ﻿@model IEnumerable<StockPortfolioTracker.ViewModels.WalletViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Wallets";
 }
 
-<h2>Index</h2>
-
-@* <ul>
-    @for (int i = 0; i < (int)ViewData["NumTimes"]!; i++)
-    {
-            <li>@ViewData["Message"]</li>
+<style>
+    .table {
+        width: 100%;
+        table-layout: auto;
     }
-</ul>
- *@
 
- <p>
-    @Html.ActionLink("Create New", "Create")
-</p> 
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-            <tr>
-                <td>
-                @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.WalletId">Details</a> |
-                    <a asp-action="Edit" asp-route-id="@item.WalletId">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.WalletId">Delete</a>
-                </td>
-            </tr>
+    .actions {
+        width: 1px;
+        white-space: nowrap;
     }
-</table>
+    
+    .wallet-name, .wallet-value {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    .table th {
+        font-size: 1.3em;
+        background-color: #f8f9fa;
+    }
+    
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0,0,0,.05);
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="display-4 text-center">Your wallets</h2>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th class="align-middle wallet-name">Wallet</th>
+                        <th class="align-middle wallet-value">Current value</th>
+                        <th class="align-middle wallet-value">Cost value</th>
+                        <th class="text-right align-middle actions">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => item.CurrentValue)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => item.CostValue)</td>
+                            <td class="text-right align-middle actions">
+                                <p class="d-flex align-items-center justify-content-end mb-0">
+                                    <a asp-action="Details" asp-route-id="@item.WalletId" class="btn btn-primary" style="margin-right: 10px;">Details</a>
+                                    <a asp-action="Edit" asp-route-id="@item.WalletId" class="btn btn-primary" style="margin-right: 10px;">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@item.WalletId" class="btn btn-danger">Delete</a>
+                                </p>
+                            </td>
+                        </tr>
+                    }
+                        <tr>
+                        <td class="align-middle"><b>SUM</b></td>
+                        <td class="align-middle"><b>@Model.Select(model => model.CurrentValue).Sum()</b></td>
+                        <td class="align-middle"><b>@Model.Select(model => model.CostValue).Sum()</b></td>
+                            <td class="text-right align-middle actions">
+                                <p class="d-flex align-items-center justify-content-end mb-0">
+                                </p>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <a asp-action="Create" class="btn btn-success">Create New</a>
+        </div>
+    </div>
+</div>

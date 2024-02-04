@@ -39,20 +39,21 @@ namespace StockPortfolioTracker.Services.YahooApiService
                             stock.LastUpdateDateTime = DateTime.Now;
                             dbContext.Stock.Update(stock);
 
-                        
-                            foreach (var dividendHistory in security.DividendHistory.Value)
+                            if (security.DividendHistory.HasValue)
                             {
-                                DateTime dividendDate = dividendHistory.Date.AtMidnight().ToDateTimeUnspecified();
-                                if (!dividends.Where(dividend => dividend.StockId == stock.Id && dividend.DividendDate == dividendDate).Any())
+                                foreach (var dividendHistory in security.DividendHistory.Value)
                                 {
-                                    Dividend dividend = new Dividend()
+                                    DateTime dividendDate = dividendHistory.Date.AtMidnight().ToDateTimeUnspecified();
+                                    if (!dividends.Where(dividend => dividend.StockId == stock.Id && dividend.DividendDate == dividendDate).Any())
                                     {
-                                        StockId = stock.Id,
-                                        DividendDate = dividendHistory.Date.AtMidnight().ToDateTimeUnspecified(),
-                                        DividendValue = Convert.ToDecimal(dividendHistory.Dividend)
-                                    };
-
-                                    dbContext.Dividend.Add(dividend);
+                                        Dividend dividend = new Dividend()
+                                        {
+                                            StockId = stock.Id,
+                                            DividendDate = dividendHistory.Date.AtMidnight().ToDateTimeUnspecified(),
+                                            DividendValue = Convert.ToDecimal(dividendHistory.Dividend)
+                                        };
+                                        dbContext.Dividend.Add(dividend);
+                                    }
                                 }
                             }
 

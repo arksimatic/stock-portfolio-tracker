@@ -8,5 +8,6 @@
         public Int32 StockId { get; set; }
         public Int32 Shares { get; set; }
         public Decimal AverageShareCost { get; set; }
+        public DateTime BuyDateTime { get; set; }
     }
 }

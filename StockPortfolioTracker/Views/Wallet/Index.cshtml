@@ -64,6 +64,8 @@
                         <th class="align-middle">Share cost value</th>
                         <th class="align-middle">Total current value</th>
                         <th class="align-middle">Total cost value</th>
+                        <th class="align-middle">Paid dividends</th>
+                        <th class="align-middle">Buy date time</th>
                         <th class="text-right align-middle actions">Actions</th>
                     </tr>
                 </thead>
@@ -77,6 +79,8 @@
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.AverageShareCost)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.CurrentTotalValue)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.AverageTotalCost)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => item.DividendsSum)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => item.BuyDateTime)</td>
                             <td class="text-right align-middle actions">
                                 <p class="d-flex align-items-center justify-content-end mb-0">
                                     <a asp-action="Edit" asp-route-wallet_x_stockId="@item.Wallet_X_StockId" class="btn btn-primary" style="margin-right: 10px;">Edit</a>
@@ -92,6 +96,8 @@
                         <td class="align-middle"><b>-</b></td>
                         <td class="align-middle"><b>@Model.WalletStocks.Select(model => model.CurrentTotalValue).Sum()</b></td>
                         <td class="align-middle"><b>@Model.WalletStocks.Select(model => model.AverageTotalCost).Sum()</b></td>
+                        <td class="align-middle"><b>@Model.WalletStocks.Select(model => model.DividendsSum).Sum()</b></td>
+                        <td class="align-middle"><b>-</b></td>
                         <td class="text-right align-middle actions"></td>
                     </tr>
                 </tbody>

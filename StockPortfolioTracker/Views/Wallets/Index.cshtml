@@ -47,6 +47,7 @@
                         <th class="align-middle wallet-name">Wallet</th>
                         <th class="align-middle wallet-value">Current value</th>
                         <th class="align-middle wallet-value">Cost value</th>
+                        <th class="align-middle wallet-value">Paid dividends</th>
                         <th class="text-right align-middle actions">Actions</th>
                     </tr>
                 </thead>
@@ -57,6 +58,7 @@
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.Name)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.CurrentValue)</td>
                             <td class="align-middle">@Html.DisplayFor(modelItem => item.CostValue)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => item.DividendsSum)</td>
                             <td class="text-right align-middle actions">
                                 <p class="d-flex align-items-center justify-content-end mb-0">
                                     <a asp-action="Details" asp-route-id="@item.WalletId" class="btn btn-primary" style="margin-right: 10px;">Details</a>
@@ -70,6 +72,7 @@
                         <td class="align-middle"><b>SUM</b></td>
                         <td class="align-middle"><b>@Model.Select(model => model.CurrentValue).Sum()</b></td>
                         <td class="align-middle"><b>@Model.Select(model => model.CostValue).Sum()</b></td>
+                        <td class="align-middle"><b>@Model.Select(model => model.DividendsSum).Sum()</b></td>
                             <td class="text-right align-middle actions">
                                 <p class="d-flex align-items-center justify-content-end mb-0">
                                 </p>

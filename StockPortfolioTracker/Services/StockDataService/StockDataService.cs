@@ -22,23 +22,45 @@ namespace StockPortfolioTracker.Services.YahooApiService
                 var dbContext = scope.ServiceProvider.GetRequiredService<StockPortfolioTrackerContext>();
                 var stocks = await dbContext.Stock.ToArrayAsync();
                 stocks = stocks.Where(stock => stock.LastUpdateDateTime.Date < DateTime.Today).ToArray();
+                Dividend[] dividends = await dbContext.Dividend.Where(dividend => stocks.Select(stock => stock.Id).Contains(dividend.StockId)).ToArrayAsync();
                 IEnumerable<String> stockSymbols = stocks.Select(stock => stock.Ticker + "." + stock.StockExchange);
-
-                Dictionary<String, Security?> securities = await _yahooQuotes.GetAsync(stockSymbols);
-                Dictionary<Stock, Security?> stockSecurities = stocks.ToDictionary(stock => stock, stock => securities[stock.Ticker + "." + stock.StockExchange]);
-
-                foreach (var stockSecurity in stockSecurities)
+                try
                 {
-                    Stock stock = stockSecurity.Key;
-                    Security security = stockSecurity.Value;
-                    if (security != null)
+                    Dictionary<String, Security?> securities = await _yahooQuotes.GetAsync(stockSymbols);
+                    Dictionary<Stock, Security?> stockSecurities = stocks.ToDictionary(stock => stock, stock => securities[stock.Ticker + "." + stock.StockExchange]);
+
+                    foreach (var stockSecurity in stockSecurities)
                     {
-                        stock.CurrentShareValue = security.RegularMarketPrice ?? 0;
-                        stock.LastUpdateDateTime = DateTime.Now;
-                        dbContext.Stock.Update(stock);
-                        await dbContext.SaveChangesAsync();
+                        Stock stock = stockSecurity.Key;
+                        Security security = stockSecurity.Value;
+                        if (security != null)
+                        {
+                            stock.CurrentShareValue = security.RegularMarketPrice ?? 0;
+                            stock.LastUpdateDateTime = DateTime.Now;
+                            dbContext.Stock.Update(stock);
+
+                        
+                            foreach (var dividendHistory in security.DividendHistory.Value)
+                            {
+                                DateTime dividendDate = dividendHistory.Date.AtMidnight().ToDateTimeUnspecified();
+                                if (!dividends.Where(dividend => dividend.StockId == stock.Id && dividend.DividendDate == dividendDate).Any())
+                                {
+                                    Dividend dividend = new Dividend()
+                                    {
+                                        StockId = stock.Id,
+                                        DividendDate = dividendHistory.Date.AtMidnight().ToDateTimeUnspecified(),
+                                        DividendValue = Convert.ToDecimal(dividendHistory.Dividend)
+                                    };
+
+                                    dbContext.Dividend.Add(dividend);
+                                }
+                            }
+
+                            await dbContext.SaveChangesAsync();
+                        }
                     }
                 }
+                catch (Exception e) { } // Can't do anything if Yahoo API fails
             }
         }
 

@@ -16,7 +16,8 @@ namespace StockPortfolioTracker.ViewModels
         public Decimal CostValue { get; set; }
         public WalletStockViewModel[] WalletStocks { get; private set; }
         public List<ChartData> ChartData { get; set; }
-        public WalletViewModel(Wallet wallet, Wallet_X_Stock[] wallets_x_stocks, Stock[] stocks, StockExternalData[] stockExternalData)
+        public WalletViewModel() { }
+        public WalletViewModel(Wallet wallet, Wallet_X_Stock[] wallets_x_stocks, Stock[] stocks)
         {
             WalletId = wallet.Id;
             Name = wallet.Name;
@@ -25,7 +26,7 @@ namespace StockPortfolioTracker.ViewModels
             for(int i = 0; i < wallets_x_stocks.Length; i++)
             {
                 Stock stock = stocks.Where(stock => stock.Id == wallets_x_stocks[i].StockId).First(); //TODO: what if stock doesn't exists?
-                walletStocks[i] = new WalletStockViewModel(wallets_x_stocks[i], stock, stockExternalData.Where(sed => sed.Ticker == stock.Ticker && sed.StockExchange == stock.StockExchange).First());
+                walletStocks[i] = new WalletStockViewModel(wallets_x_stocks[i], stock);
             }
             WalletStocks = walletStocks;
 

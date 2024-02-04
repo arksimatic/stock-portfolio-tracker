@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<StockPortfolioTrackerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StockPortfolioTrackerContext") ?? throw new InvalidOperationException("Connection string 'StockPortfolioTrackerContext' not found.")));
 
-builder.Services.AddScoped<IStockDataService, StockDataService>();
+// Adding StockDataService to update stock data
+builder.Services.AddHostedService<StockDataService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

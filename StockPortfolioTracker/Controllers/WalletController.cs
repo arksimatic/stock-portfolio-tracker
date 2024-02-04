@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Models;
+using StockPortfolioTracker.Services.YahooApiService;
 using StockPortfolioTracker.ViewModels;
 
 namespace StockPortfolioTracker.Controllers
@@ -19,9 +20,11 @@ public class AxisLabelData
 public class WalletController : Controller
     {
         private readonly StockPortfolioTrackerContext _context;
-        public WalletController(StockPortfolioTrackerContext context)
+        private readonly IStockDataService _stockDataService;
+        public WalletController(StockPortfolioTrackerContext context, IStockDataService stockDataService)
         {
             _context = context;
+            _stockDataService = stockDataService;
         }
 
         #region Index
@@ -33,7 +36,10 @@ public class WalletController : Controller
             {
                 var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
                 var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
-                var walletViewProxy = new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray());
+                var stockFullData = new List<StockExternalData>();
+                foreach (var stock in stocks)
+                    stockFullData.Add(await _stockDataService.GetStockDataAsync(stock.StockExchange, stock.Ticker));
+                var walletViewProxy = new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray(), stockFullData.ToArray());
                 List<AxisLabelData> chartData = new List<AxisLabelData>
             {
                 new AxisLabelData { x= "South Korea", y= 39.4 },
@@ -100,7 +106,8 @@ public class WalletController : Controller
         {
             var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(wallet_x_stockId);
             var stock = await _context.Stock.FindAsync(wallet_x_stock.StockId); //TODO: what if stock doesn't exists?
-            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock);
+            var stockExternalData = await _stockDataService.GetStockDataAsync(stock.StockExchange, stock.Ticker);
+            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock, stockExternalData);
             return View(walletStockViewModel);
         }
 
@@ -131,7 +138,8 @@ public class WalletController : Controller
         {
             var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(wallet_x_stockId);
             var stock = await _context.Stock.FindAsync(wallet_x_stock.StockId); //TODO: what if stock doesn't exists?
-            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock);
+            var stockExternalData = await _stockDataService.GetStockDataAsync(stock.StockExchange, stock.Ticker);
+            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock, stockExternalData);
             return View(walletStockViewModel);
         }
 

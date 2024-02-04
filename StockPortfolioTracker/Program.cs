@@ -1,9 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using StockPortfolioTracker.Data;
+using StockPortfolioTracker.Services.YahooApiService;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<StockPortfolioTrackerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StockPortfolioTrackerContext") ?? throw new InvalidOperationException("Connection string 'StockPortfolioTrackerContext' not found.")));
+
+builder.Services.AddScoped<IStockDataService, StockDataService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

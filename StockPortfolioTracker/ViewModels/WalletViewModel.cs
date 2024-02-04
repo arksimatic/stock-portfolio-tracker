@@ -1,4 +1,5 @@
 ﻿using StockPortfolioTracker.Models;
+using StockPortfolioTracker.Services.YahooApiService;
 
 namespace StockPortfolioTracker.ViewModels
 {
@@ -15,22 +16,25 @@ namespace StockPortfolioTracker.ViewModels
         public Decimal CostValue { get; set; }
         public WalletStockViewModel[] WalletStocks { get; private set; }
         public List<ChartData> ChartData { get; set; }
-        public WalletViewModel(Wallet wallet, Wallet_X_Stock[] wallets_x_stocks, Stock[] stocks)
+        public WalletViewModel(Wallet wallet, Wallet_X_Stock[] wallets_x_stocks, Stock[] stocks, StockExternalData[] stockExternalData)
         {
             WalletId = wallet.Id;
             Name = wallet.Name;
 
             WalletStockViewModel[] walletStocks = new WalletStockViewModel[wallets_x_stocks.Length];
             for(int i = 0; i < wallets_x_stocks.Length; i++)
-                walletStocks[i] = new WalletStockViewModel(wallets_x_stocks[i], stocks.Where(stock => stock.Id == wallets_x_stocks[i].StockId).First()); //TODO: what if stock doesn't exists?
+            {
+                Stock stock = stocks.Where(stock => stock.Id == wallets_x_stocks[i].StockId).First(); //TODO: what if stock doesn't exists?
+                walletStocks[i] = new WalletStockViewModel(wallets_x_stocks[i], stock, stockExternalData.Where(sed => sed.Ticker == stock.Ticker && sed.StockExchange == stock.StockExchange).First());
+            }
             WalletStocks = walletStocks;
 
-            CurrentValue = WalletStocks.Sum(walletStock => walletStock.Shares * walletStock.AverageShareCost);
-            CostValue = WalletStocks.Sum(walletStock => walletStock.Shares * walletStock.AverageShareCost);
+            CurrentValue = WalletStocks.Sum(walletStock => walletStock.CurrentTotalValue);
+            CostValue = WalletStocks.Sum(walletStock => walletStock.AverageTotalCost);
 
             List<ChartData> chartData = new List<ChartData>();
             foreach (var walletStock in WalletStocks)
-                chartData.Add(new ChartData { StockName = walletStock.Ticker, StockValue = walletStock.Shares * walletStock.AverageShareCost });
+                chartData.Add(new ChartData { StockName = walletStock.Ticker, StockValue = walletStock.CurrentTotalValue});
             ChartData = chartData;
         }
     }

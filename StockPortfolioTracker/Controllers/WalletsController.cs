@@ -2,17 +2,20 @@
 using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Models;
+using StockPortfolioTracker.Services.YahooApiService;
 using StockPortfolioTracker.ViewModels;
+using YahooQuotesApi;
 
 namespace StockPortfolioTracker.Controllers
 {
     public class WalletsController : Controller
     {
         private readonly StockPortfolioTrackerContext _context;
-
-        public WalletsController(StockPortfolioTrackerContext context)
+        private readonly IStockDataService _stockDataService;
+        public WalletsController(StockPortfolioTrackerContext context, IStockDataService stockDataService)
         {
             _context = context;
+            _stockDataService = stockDataService;
         }
 
         #region Index
@@ -23,7 +26,10 @@ namespace StockPortfolioTracker.Controllers
             {
                 var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
                 var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
-                walletsViewProxy.Add(new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray()));
+                var stockFullData = new List<StockExternalData>();
+                foreach(var stock in stocks)
+                    stockFullData.Add(await _stockDataService.GetStockDataAsync(stock.StockExchange, stock.Ticker));
+                walletsViewProxy.Add(new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray(), stockFullData.ToArray()));
             }
             return View(walletsViewProxy);
         }

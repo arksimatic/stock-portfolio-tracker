@@ -115,23 +115,19 @@ public class WalletController : Controller
         #endregion Update
 
         #region Delete
-        public async Task<IActionResult> Delete(Int32 wallet_x_stockId)
+        public async Task<IActionResult> Delete(int? wallet_x_stockId)
         {
-            var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(wallet_x_stockId);
-            var stock = await _context.Stock.FindAsync(wallet_x_stock.StockId); //TODO: what if stock doesn't exists?
-            var dividends = await _context.Dividend.Where(dividend => dividend.StockId == stock.Id).ToArrayAsync();
-            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock, dividends);
-            return View(walletStockViewModel);
-        }
+            if (wallet_x_stockId == null || _context.Wallet_X_Stock == null)
+                return NotFound();
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(WalletStockViewModel walletStockViewModel)
-        {
-            var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(walletStockViewModel.Wallet_X_StockId);
+            var wallet_x_stock = await _context.Wallet_X_Stock
+                .FirstOrDefaultAsync(m => m.Id == wallet_x_stockId);
+            if (wallet_x_stock == null)
+                return NotFound();
+
             _context.Wallet_X_Stock.Remove(wallet_x_stock);
             await _context.SaveChangesAsync();
-            return RedirectToWallet(walletStockViewModel.WalletId);
+            return RedirectToWallet(wallet_x_stock.WalletId);
         }
         #endregion Delete
 

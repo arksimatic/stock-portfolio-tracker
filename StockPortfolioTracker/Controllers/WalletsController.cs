@@ -132,34 +132,14 @@ namespace StockPortfolioTracker.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Wallet == null)
-            {
                 return NotFound();
-            }
 
             var wallet = await _context.Wallet
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (wallet == null)
-            {
                 return NotFound();
-            }
 
-            return View(wallet);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Wallet == null)
-            {
-                return Problem("Entity set 'StockPortfolioTrackerContext.Wallet'  is null.");
-            }
-            var wallet = await _context.Wallet.FindAsync(id);
-            if (wallet != null)
-            {
-                _context.Wallet.Remove(wallet);
-            }
-
+            _context.Wallet.Remove(wallet);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

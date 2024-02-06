@@ -63,7 +63,7 @@
                                 <p class="d-flex align-items-center justify-content-end mb-0">
                                     <a asp-action="Details" asp-route-id="@item.WalletId" class="btn btn-primary" style="margin-right: 10px;">Details</a>
                                     <a asp-action="Edit" asp-route-id="@item.WalletId" class="btn btn-primary" style="margin-right: 10px;">Edit</a>
-                                    <a asp-action="Delete" asp-route-id="@item.WalletId" class="btn btn-danger">Delete</a>
+                                    <a asp-action="Delete" asp-route-id="@item.WalletId" class="btn btn-danger delete-btn" data-wallet-name="@item.Name">Delete</a>
                                 </p>
                             </td>
                         </tr>
@@ -84,3 +84,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            var walletName = this.getAttribute('data-wallet-name');
+            if (!confirm(`Do you wish to delete wallet ${walletName}?`)) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>

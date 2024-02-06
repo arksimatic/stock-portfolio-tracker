@@ -84,7 +84,7 @@
                             <td class="text-right align-middle actions">
                                 <p class="d-flex align-items-center justify-content-end mb-0">
                                     <a asp-action="Edit" asp-route-wallet_x_stockId="@item.Wallet_X_StockId" class="btn btn-primary" style="margin-right: 10px;">Edit</a>
-                                    <a asp-action="Delete" asp-route-wallet_x_stockId="@item.Wallet_X_StockId" class="btn btn-danger" style="margin-right: 10px;">Delete</a>
+                                    <a asp-action="Delete" asp-route-wallet_x_stockId="@item.Wallet_X_StockId" class="btn btn-danger delete-btn" data-stock-name="@item.Ticker">Delete</a>
                                 </p>
                             </td>
                         </tr>
@@ -106,3 +106,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            var stockName = this.getAttribute('data-stock-name');
+            if (!confirm(`Do you wish to delete stock ${stockName}?`)) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>

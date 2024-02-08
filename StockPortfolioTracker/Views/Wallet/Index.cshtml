@@ -102,7 +102,11 @@
                     </tr>
                 </tbody>
             </table>
-            <a asp-action="Create" asp-route-walletId="@Model.WalletId" class="btn btn-success">Create New</a>
+            <div class="form-group mt-3 d-flex justify-content-between">
+                <a asp-controller="Wallets" asp-action="Index" class="btn btn-secondary">Back</a>
+                <a asp-action="Create" asp-route-walletId="@Model.WalletId" class="btn btn-primary">Create New</a>
+            </div>
+            
         </div>
     </div>
 </div>

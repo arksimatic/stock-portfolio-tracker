@@ -1,12 +1,23 @@
+using System.Globalization;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Services.YahooApiService;
+
+// Set the culture
+var cultureInfo = new CultureInfo("en-US");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
 builder.Services.AddDbContext<StockPortfolioTrackerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StockPortfolioTrackerContext") ?? throw new InvalidOperationException("Connection string 'StockPortfolioTrackerContext' not found.")));
 
-// Adding StockDataService to update stock data
+// Add StockDataService to update stock data
 builder.Services.AddHostedService<StockDataService>();
 
 // Add services to the container.

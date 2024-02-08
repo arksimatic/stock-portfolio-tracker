@@ -104,6 +104,7 @@ public class WalletController : Controller
                     var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(walletStockViewModel.Wallet_X_StockId);
                     wallet_x_stock.Shares = walletStockViewModel.Shares;
                     wallet_x_stock.AverageShareCost = walletStockViewModel.AverageShareCost;
+                    wallet_x_stock.BuyDateTime = walletStockViewModel.BuyDateTime;
                     _context.Update(wallet_x_stock);
                     await _context.SaveChangesAsync();
                 }

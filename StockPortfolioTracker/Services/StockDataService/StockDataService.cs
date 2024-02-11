@@ -26,7 +26,7 @@ namespace StockPortfolioTracker.Services.YahooApiService
                 IEnumerable<String> stockSymbols = stocks.Select(stock => stock.Ticker + "." + stock.StockExchange);
                 try
                 {
-                    Dictionary<String, Security?> securities = await _yahooQuotes.GetAsync(stockSymbols);
+                    Dictionary<String, Security?> securities = await _yahooQuotes.GetAsync(stockSymbols, Histories.DividendHistory);
                     Dictionary<Stock, Security?> stockSecurities = stocks.ToDictionary(stock => stock, stock => securities[stock.Ticker + "." + stock.StockExchange]);
 
                     foreach (var stockSecurity in stockSecurities)

@@ -38,23 +38,9 @@ namespace StockPortfolioTracker.Controllers
                 return Problem("Wallet doesn't exists");
             else
                 return RedirectToWallet(id.Value);
-            //if (id == null || _context.Wallet == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //var wallet = await _context.Wallet
-            //    .FirstOrDefaultAsync(m => m.Id == id);
-            //if (wallet == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //return View(wallet);
         }
         public IActionResult RedirectToWallet(int walletId)
         {
-            // Redirect to WalletController's Details action with the specified wallet ID
             return RedirectToAction("Index", "Wallet", new { walletId = walletId });
         }
         #endregion Detailes

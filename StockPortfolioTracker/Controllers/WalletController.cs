@@ -136,9 +136,5 @@ public class WalletController : Controller
         {
             return RedirectToAction("Index", "Wallet", new { walletId });
         }
-        private bool WalletExists(int id)
-        {
-          return (_context.Wallet?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
     }
 }

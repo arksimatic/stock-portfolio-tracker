@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
+using StockPortfolioTracker.Helpers;
 using StockPortfolioTracker.Models;
 using YahooQuotesApi;
 
@@ -49,7 +50,7 @@ namespace StockPortfolioTracker.Services.YahooApiService
                                         Dividend dividend = new Dividend()
                                         {
                                             StockId = stock.Id,
-                                            DividendDate = dividendHistory.Date.AtMidnight().ToDateTimeUnspecified(),
+                                            DividendDate = dividendDate,
                                             DividendValue = Convert.ToDecimal(dividendHistory.Dividend)
                                         };
                                         dbContext.Dividend.Add(dividend);
@@ -64,11 +65,45 @@ namespace StockPortfolioTracker.Services.YahooApiService
                 catch (Exception e) { } // Can't do anything if Yahoo API fails
             }
         }
+        public async Task UpdateCurrenciesDataAsync()
+        {
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<StockPortfolioTrackerContext>();
+                Currency[] currenciesInDb = await dbContext.Currency.ToArrayAsync();
+                Currency[] currenciesAll = CurrencyHelper.FillCurrencyArrayWithMissingCurrencies(currenciesInDb);
+                Currency[] currenciesToUpdate = currenciesAll.Where(currency => currency.Code != CurrencyCode.USD).Where(currency => currency.LastUpdateDateTime.Date < DateTime.Today).ToArray();
+
+                try
+                {
+                    Dictionary<String, Security?> securities = await _yahooQuotes.GetAsync(currenciesToUpdate.Select(currency => currency.Code.ToString() + "USD=X").ToArray());
+                    Dictionary<Currency, Security?> currencySecurities = currenciesToUpdate.ToDictionary(currency => currency, currency => securities[currency.Code.ToString() + "USD=X"]);
+                    
+                    foreach(var currencySecurity in currencySecurities)
+                    {
+                        Currency currency = currencySecurity.Key;
+                        Security security = currencySecurity.Value;
+                        if (security != null)
+                        {
+                            currency.USDRatio = security.RegularMarketPrice ?? 0;
+                            currency.LastUpdateDateTime = DateTime.Now;
+                            dbContext.Currency.Update(currency);
+                        }
+                    }
+                    
+                }
+                catch (Exception e) { } // Can't do anything if Yahoo API fails
+            }
+        }
+        public async Task UpdateAll()
+        {
+            await UpdateStocksDataAsync();
+            await UpdateCurrenciesDataAsync();
+        }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _timer = new Timer(async _ => await UpdateStocksDataAsync(), null, TimeSpan.Zero, TimeSpan.FromHours(1));
-
+            _timer = new Timer(async _ => await UpdateAll(), null, TimeSpan.Zero, TimeSpan.FromHours(1));
             return Task.CompletedTask;
         }
 

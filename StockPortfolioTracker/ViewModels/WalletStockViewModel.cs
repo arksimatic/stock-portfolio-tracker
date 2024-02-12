@@ -28,10 +28,11 @@ namespace StockPortfolioTracker.Models
             AverageShareCost = wallet_x_stock.AverageShareCost;
             CurrentShareValue = stock.CurrentShareValue;
             BuyDateTime = wallet_x_stock.BuyDateTime;
-            DividendsSum = dividends.DefaultIfEmpty().Where(dividend => dividend != null).Where(dividend => wallet_x_stock.BuyDateTime < dividend.DividendDate).Sum(dividend => dividend.DividendValue);
+            Decimal dividendPerShare = dividends.DefaultIfEmpty().Where(dividend => dividend != null).Where(dividend => wallet_x_stock.BuyDateTime < dividend.DividendDate).Sum(dividend => dividend.DividendValue);
+            DividendsSum = dividendPerShare * wallet_x_stock.Shares;
 
             AverageTotalCost = wallet_x_stock.AverageShareCost * wallet_x_stock.Shares;
-            CurrentTotalValue = stock.CurrentShareValue * wallet_x_stock.Shares; //TODO: placeholder for now
+            CurrentTotalValue = stock.CurrentShareValue * wallet_x_stock.Shares;
 
             StockExchange = stock.StockExchange;
             Ticker = stock.Ticker;

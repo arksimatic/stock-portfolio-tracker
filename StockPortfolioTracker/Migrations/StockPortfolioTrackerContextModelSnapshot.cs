@@ -22,6 +22,28 @@ namespace StockPortfolioTracker.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("StockPortfolioTracker.Models.Currency", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Code")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("LastUpdateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("USDRatio")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Currency");
+                });
+
             modelBuilder.Entity("StockPortfolioTracker.Models.Dividend", b =>
                 {
                     b.Property<int>("Id")
@@ -69,23 +91,6 @@ namespace StockPortfolioTracker.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Stock");
-                });
-
-            modelBuilder.Entity("StockPortfolioTracker.Models.Test", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Test");
                 });
 
             modelBuilder.Entity("StockPortfolioTracker.Models.Wallet", b =>

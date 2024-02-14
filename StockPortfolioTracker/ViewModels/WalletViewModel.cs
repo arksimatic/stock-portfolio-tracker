@@ -19,7 +19,7 @@ namespace StockPortfolioTracker.ViewModels
         public WalletStockViewModel[] WalletStocks { get; private set; }
         public List<ChartData> ChartData { get; set; }
         public WalletViewModel() { }
-        public WalletViewModel(Wallet wallet, Wallet_X_Stock[] wallets_x_stocks, Stock[] stocks, Dividend[] dividends)
+        public WalletViewModel(Wallet wallet, Wallet_X_Stock[] wallets_x_stocks, Stock[] stocks, Dividend[] dividends, Currency[] currenties)
         {
             WalletId = wallet.Id;
             Name = wallet.Name;
@@ -29,7 +29,8 @@ namespace StockPortfolioTracker.ViewModels
             {
                 Stock stock = stocks.Where(stock => stock.Id == wallets_x_stocks[i].StockId).First(); //TODO: what if stock doesn't exists?
                 Dividend[] stockDividends = dividends.Where(dividend => dividend.StockId == stock.Id).ToArray();
-                walletStocks[i] = new WalletStockViewModel(wallets_x_stocks[i], stock, stockDividends);
+                Currency currency = currenties.Where(currency => currency.Id == stock.CurrencyId).FirstOrDefault();
+                walletStocks[i] = new WalletStockViewModel(wallets_x_stocks[i], stock, stockDividends, currency);
             }
             WalletStocks = walletStocks;
 

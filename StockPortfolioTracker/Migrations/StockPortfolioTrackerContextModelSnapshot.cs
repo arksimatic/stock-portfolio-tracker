@@ -74,6 +74,9 @@ namespace StockPortfolioTracker.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("CurrencyId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("CurrentShareValue")
                         .HasColumnType("decimal(18,2)");
 

@@ -35,7 +35,8 @@ public class WalletController : Controller
                 var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
                 var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
                 var dividends = _context.Dividend.Where(dividend => stocks.Any(stock => stock.Id == dividend.StockId)).ToArray();
-                var walletViewProxy = new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray(), dividends);
+                var currencies = _context.Currency.Where(currency => stocks.Any(stock => stock.CurrencyId == currency.Id)).ToArray();
+                var walletViewProxy = new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray(), dividends, currencies);
                 return View(walletViewProxy);
             }
             else
@@ -88,7 +89,8 @@ public class WalletController : Controller
             var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(wallet_x_stockId);
             var stock = await _context.Stock.FindAsync(wallet_x_stock.StockId); //TODO: what if stock doesn't exists?
             var dividends = await _context.Dividend.Where(dividend => dividend.StockId == stock.Id).ToArrayAsync();
-            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock, dividends);
+            var currency = (await _context.Currency.Where(currency => currency.Id == stock.CurrencyId).ToArrayAsync()).FirstOrDefault();
+            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock, dividends, currency);
             return View(walletStockViewModel);
         }
 

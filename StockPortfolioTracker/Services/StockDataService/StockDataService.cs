@@ -21,8 +21,8 @@ namespace StockPortfolioTracker.Services.YahooApiService
             using (var scope = _serviceProvider.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<StockPortfolioTrackerContext>();
-                var stocks = await dbContext.Stock.ToArrayAsync();
-                stocks = stocks.Where(stock => stock.LastUpdateDateTime.Date < DateTime.Today).ToArray();
+                Stock[] stocks = await dbContext.Stock.Where(stock => stock.LastUpdateDateTime.Date < DateTime.Today).ToArrayAsync();
+                Currency[] currencies = await dbContext.Currency.ToArrayAsync();
                 Dividend[] dividends = await dbContext.Dividend.Where(dividend => stocks.Select(stock => stock.Id).Contains(dividend.StockId)).ToArrayAsync();
                 IEnumerable<String> stockSymbols = stocks.Select(stock => stock.Ticker + "." + stock.StockExchange);
                 try
@@ -36,8 +36,12 @@ namespace StockPortfolioTracker.Services.YahooApiService
                         Security security = stockSecurity.Value;
                         if (security != null)
                         {
+                            Currency currency = currencies.Where(currency => currency.Code.ToString() == security.Currency).FirstOrDefault();
+
+                            stock.CurrencyId = currency?.Id ?? 0;
                             stock.CurrentShareValue = security.RegularMarketPrice ?? 0;
                             stock.LastUpdateDateTime = DateTime.Now;
+
                             dbContext.Stock.Update(stock);
 
                             if (security.DividendHistory.HasValue)
@@ -57,10 +61,10 @@ namespace StockPortfolioTracker.Services.YahooApiService
                                     }
                                 }
                             }
-
-                            await dbContext.SaveChangesAsync();
                         }
                     }
+
+                    await dbContext.SaveChangesAsync();
                 }
                 catch (Exception e) { } // Can't do anything if Yahoo API fails
             }
@@ -71,7 +75,7 @@ namespace StockPortfolioTracker.Services.YahooApiService
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<StockPortfolioTrackerContext>();
                 Currency[] currenciesInDb = await dbContext.Currency.ToArrayAsync();
-                Currency[] currenciesAll = CurrencyHelper.FillCurrencyArrayWithMissingCurrencies(currenciesInDb);
+               Currency[] currenciesAll = CurrencyHelper.FillCurrencyArrayWithMissingCurrencies(currenciesInDb);
                 Currency[] currenciesToUpdate = currenciesAll.Where(currency => currency.Code != CurrencyCode.USD).Where(currency => currency.LastUpdateDateTime.Date < DateTime.Today).ToArray();
 
                 try
@@ -87,10 +91,14 @@ namespace StockPortfolioTracker.Services.YahooApiService
                         {
                             currency.USDRatio = security.RegularMarketPrice ?? 0;
                             currency.LastUpdateDateTime = DateTime.Now;
-                            dbContext.Currency.Update(currency);
+                            if(currenciesInDb.Where(currencyInDb => currencyInDb.Id == currency.Id).Any())
+                                dbContext.Currency.Update(currency);
+                            else
+                                dbContext.Currency.Add(currency);
                         }
                     }
-                    
+
+                    await dbContext.SaveChangesAsync();
                 }
                 catch (Exception e) { } // Can't do anything if Yahoo API fails
             }

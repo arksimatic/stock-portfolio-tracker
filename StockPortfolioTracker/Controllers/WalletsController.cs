@@ -25,7 +25,8 @@ namespace StockPortfolioTracker.Controllers
                 var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
                 var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
                 var dividends = _context.Dividend.Where(dividend => stocks.Any(stock => stock.Id == dividend.StockId)).ToArray();
-                walletsViewProxy.Add(new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray(), dividends));
+                var currencies = _context.Currency.Where(currency => stocks.Any(stock => stock.CurrencyId == currency.Id)).ToArray();
+                walletsViewProxy.Add(new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray(), dividends, currencies));
             }
             return View(walletsViewProxy);
         }

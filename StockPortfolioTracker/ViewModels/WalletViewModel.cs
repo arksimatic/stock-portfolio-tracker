@@ -16,6 +16,7 @@ namespace StockPortfolioTracker.ViewModels
         public Decimal CurrentValue { get; set; }
         public Decimal CostValue { get; set; }
         public Decimal DividendsSum { get; set; }
+        public CurrencyCode DefaultCurrencyCode { get; set; }
         public WalletStockViewModel[] WalletStocks { get; private set; }
         public List<ChartData> ChartData { get; set; }
         public WalletViewModel() { }
@@ -23,6 +24,7 @@ namespace StockPortfolioTracker.ViewModels
         {
             WalletId = wallet.Id;
             Name = wallet.Name;
+            DefaultCurrencyCode = currenties.Where(currency => currency.Id == wallet.DefaultCurrencyId).FirstOrDefault().Code;
 
             WalletStockViewModel[] walletStocks = new WalletStockViewModel[wallets_x_stocks.Length];
             for(int i = 0; i < wallets_x_stocks.Length; i++)

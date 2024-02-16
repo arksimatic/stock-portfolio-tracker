@@ -25,7 +25,7 @@ namespace StockPortfolioTracker.Controllers
                 var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
                 var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
                 var dividends = _context.Dividend.Where(dividend => stocks.Any(stock => stock.Id == dividend.StockId)).ToArray();
-                var currencies = _context.Currency.Where(currency => stocks.Any(stock => stock.CurrencyId == currency.Id)).ToArray();
+                var currencies = _context.Currency.ToArray();
                 walletsViewProxy.Add(new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray(), dividends, currencies));
             }
             return View(walletsViewProxy);
@@ -54,64 +54,53 @@ namespace StockPortfolioTracker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Wallet wallet)
+        public async Task<IActionResult> Create(WalletViewModel walletViewModel)
         {
+            ModelState.Remove("ChartData");
+            ModelState.Remove("WalletStocks");
             if (ModelState.IsValid)
             {
+                var wallet = new Wallet()
+                {
+                    Name = walletViewModel.Name,
+                    DefaultCurrencyId = _context.Currency.Where(currency => currency.Code == walletViewModel.DefaultCurrencyCode).FirstOrDefault().Id
+                };
                 _context.Add(wallet);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(wallet);
+            return View(walletViewModel);
         }
         #endregion Create
 
         #region Edit
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(Int32 id)
         {
-            if (id == null || _context.Wallet == null)
-            {
-                return NotFound();
-            }
-
             var wallet = await _context.Wallet.FindAsync(id);
-            if (wallet == null)
-            {
-                return NotFound();
-            }
-            return View(wallet);
+            var currencies =_context.Currency.ToArray();
+            var walletViewModel = new WalletViewModel(wallet, new Wallet_X_Stock[0], new Stock[0], new Dividend[0], currencies);
+            return View(walletViewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Wallet wallet)
+        public async Task<IActionResult> Edit(WalletViewModel walletViewModel)
         {
-            if (id != wallet.Id)
-            {
-                return NotFound();
-            }
-
+            ModelState.Remove("ChartData");
+            ModelState.Remove("WalletStocks");
             if (ModelState.IsValid)
             {
-                try
+                var wallet = new Wallet()
                 {
-                    _context.Update(wallet);
-                    await _context.SaveChangesAsync();
-                } 
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!WalletExists(wallet.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                    Id = walletViewModel.WalletId,
+                    Name = walletViewModel.Name,
+                    DefaultCurrencyId = _context.Currency.Where(currency => currency.Code == walletViewModel.DefaultCurrencyCode).FirstOrDefault().Id
+                };
+                _context.Update(wallet);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(wallet);
+            return View(walletViewModel);
         }
         #endregion Edit
 

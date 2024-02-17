@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
+using StockPortfolioTracker.Helpers;
 using StockPortfolioTracker.Models;
 using StockPortfolioTracker.Services.YahooApiService;
 using StockPortfolioTracker.ViewModels;
@@ -28,19 +29,8 @@ public class WalletController : Controller
         #region Index
         public async Task<IActionResult> Index(Int32 walletId)
         {
-            var wallets = await _context.Wallet.ToListAsync();
-            var wallet = wallets.Where(wallet => wallet.Id == walletId).FirstOrDefault();
-            if (wallet != null)
-            {
-                var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
-                var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
-                var dividends = _context.Dividend.Where(dividend => stocks.Any(stock => stock.Id == dividend.StockId)).ToArray();
-                var currencies = _context.Currency.ToArray();
-                var walletViewProxy = new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray(), dividends, currencies);
-                return View(walletViewProxy);
-            }
-            else
-                return Problem("This wallet doesn't exists.");
+            WalletViewModel walletViewProxy = WalletHelper.GetWalletViewModel(walletId, _context);
+            return View(walletViewProxy);
         }
         #endregion Index
 
@@ -90,7 +80,7 @@ public class WalletController : Controller
             var stock = await _context.Stock.FindAsync(wallet_x_stock.StockId); //TODO: what if stock doesn't exists?
             var dividends = await _context.Dividend.Where(dividend => dividend.StockId == stock.Id).ToArrayAsync();
             var currency = (await _context.Currency.Where(currency => currency.Id == stock.CurrencyId).ToArrayAsync()).FirstOrDefault();
-            var walletStockViewModel = new WalletStockViewModel(wallet_x_stock, stock, dividends, currency);
+            var walletStockViewModel = WalletHelper.GetWalletStockViewModel(wallet_x_stock.Id, _context);
             return View(walletStockViewModel);
         }
 

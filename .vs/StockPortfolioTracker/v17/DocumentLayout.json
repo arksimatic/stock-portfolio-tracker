@@ -1,0 +1,772 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projects\\.NET\\StockPortfolioTracker\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\helpers\\currencyhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\helpers\\currencyhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\helpers\\wallethelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\helpers\\wallethelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\controllers\\walletscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\controllers\\walletscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\services\\stockdataservice\\stockdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\services\\stockdataservice\\stockdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\controllers\\walletcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\controllers\\walletcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\viewmodels\\walletstockviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\viewmodels\\walletstockviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\viewmodels\\walletviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\viewmodels\\walletviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\models\\wallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\models\\wallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\models\\stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\models\\stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\models\\wallet_x_stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\models\\wallet_x_stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\wallet\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\wallet\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\wallets\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\wallets\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\wallets\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\wallets\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\wallet\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\wallet\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\wallet\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\wallet\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\wallets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\wallets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240216182251_added-wallet-default-currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240216182251_added-wallet-default-currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\models\\currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\models\\currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\models\\currencycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\models\\currencycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\stockportfoliotrackercontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\stockportfoliotrackercontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240212202541_update-currency-for-existing-stocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240212202541_update-currency-for-existing-stocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240212202108_added-currency-to-stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240212202108_added-currency-to-stock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240204152941_added-dividend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240204152941_added-dividend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240212185130_added-currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240212185130_added-currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240204162739_added-buy-datetime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240204162739_added-buy-datetime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\data\\stockportfoliotrackercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\data\\stockportfoliotrackercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\viewmodels\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\viewmodels\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\models\\dividend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\models\\dividend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240131133345_user-wallet-stock-update-2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240131133345_user-wallet-stock-update-2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240130002955_testcontroller.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240130002955_testcontroller.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240128133726_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240128133726_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240203155600_temporary-deleted-currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240203155600_temporary-deleted-currency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|c:\\projects\\.net\\stockportfoliotracker\\stockportfoliotracker\\migrations\\20240204124911_expanded-stock-model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D21E458-D575-4F65-99C7-DE3F28590034}|StockPortfolioTracker\\StockPortfolioTracker.csproj|solutionrelative:stockportfoliotracker\\migrations\\20240204124911_expanded-stock-model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 528,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallet\\Index.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Wallet\\Index.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallet\\Index.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Wallet\\Index.cshtml",
+              "ViewState": "AQIAACYAAAAAAAAAAAAxwDkAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-02T10:13:44.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallet\\Edit.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Wallet\\Edit.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallet\\Edit.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Wallet\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-01T23:12:34.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CurrencyHelper.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Helpers\\CurrencyHelper.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Helpers\\CurrencyHelper.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Helpers\\CurrencyHelper.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Helpers\\CurrencyHelper.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAACcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-12T18:30:55.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WalletViewModel.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\ViewModels\\WalletViewModel.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\ViewModels\\WalletViewModel.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\ViewModels\\WalletViewModel.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\ViewModels\\WalletViewModel.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA/wBoAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-01T19:02:13.973Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Wallet_X_Stock.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Wallet_X_Stock.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Models\\Wallet_X_Stock.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Wallet_X_Stock.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Models\\Wallet_X_Stock.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-04T16:11:58.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StockDataService.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Services\\StockDataService\\StockDataService.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Services\\StockDataService\\StockDataService.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Services\\StockDataService\\StockDataService.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Services\\StockDataService\\StockDataService.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAEcAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-04T00:09:12.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WalletController.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Controllers\\WalletController.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Controllers\\WalletController.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Controllers\\WalletController.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Controllers\\WalletController.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAB8AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-16T19:02:11.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WalletHelper.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Helpers\\WalletHelper.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Helpers\\WalletHelper.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Helpers\\WalletHelper.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Helpers\\WalletHelper.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAAD4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-16T22:14:33.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WalletsController.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Controllers\\WalletsController.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Controllers\\WalletsController.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Controllers\\WalletsController.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Controllers\\WalletsController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAIAwwBUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-01T19:02:24.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Program.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Program.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Program.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Program.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAqwBEAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-04T00:49:28.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WalletStockViewModel.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\ViewModels\\WalletStockViewModel.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\ViewModels\\WalletStockViewModel.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\ViewModels\\WalletStockViewModel.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\ViewModels\\WalletStockViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-01T23:52:07.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Wallet.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Wallet.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Models\\Wallet.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Wallet.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Models\\Wallet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-01T19:02:15.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\User.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Models\\User.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\User.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-01T23:22:00.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Stock.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Stock.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Models\\Stock.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Stock.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Models\\Stock.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-01T23:22:03.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallets\\Edit.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Wallets\\Edit.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallets\\Edit.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Wallets\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-07T23:57:17.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallets\\Create.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Wallets\\Create.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallets\\Create.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Wallets\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-08T00:05:32.861Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AQIAAG8SAAAAAAAAAAAewH0SAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-02-16T19:05:33.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallet\\Create.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Wallet\\Create.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallet\\Create.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Wallet\\Create.cshtml",
+              "ViewState": "AQIAABQAAAAAAAAAAAD4vyIAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-01T23:35:26.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallets\\Index.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Wallets\\Index.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Wallets\\Index.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Wallets\\Index.cshtml",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAuwGQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-02T16:36:38.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "20240216182251_added-wallet-default-currency.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240216182251_added-wallet-default-currency.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240216182251_added-wallet-default-currency.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240216182251_added-wallet-default-currency.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240216182251_added-wallet-default-currency.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-16T18:22:52.314Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Currency.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Currency.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Models\\Currency.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Currency.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Models\\Currency.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-11T18:08:38.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CurrencyCode.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\CurrencyCode.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Models\\CurrencyCode.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\CurrencyCode.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Models\\CurrencyCode.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-11T17:55:24.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "StockPortfolioTrackerContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\StockPortfolioTrackerContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\StockPortfolioTrackerContextModelSnapshot.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\StockPortfolioTrackerContextModelSnapshot.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\StockPortfolioTrackerContextModelSnapshot.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAAJUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-12T20:34:20.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "20240212202541_update-currency-for-existing-stocks.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240212202541_update-currency-for-existing-stocks.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240212202541_update-currency-for-existing-stocks.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240212202541_update-currency-for-existing-stocks.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240212202541_update-currency-for-existing-stocks.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-12T20:40:35.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "20240212202108_added-currency-to-stock.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240212202108_added-currency-to-stock.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240212202108_added-currency-to-stock.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240212202108_added-currency-to-stock.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240212202108_added-currency-to-stock.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-12T20:21:08.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "20240204152941_added-dividend.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240204152941_added-dividend.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240204152941_added-dividend.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240204152941_added-dividend.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240204152941_added-dividend.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAqwBEAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-04T15:29:41.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "20240212185130_added-currency.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240212185130_added-currency.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240212185130_added-currency.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240212185130_added-currency.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240212185130_added-currency.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-12T20:26:39.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "20240204162739_added-buy-datetime.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240204162739_added-buy-datetime.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240204162739_added-buy-datetime.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240204162739_added-buy-datetime.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240204162739_added-buy-datetime.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-04T16:27:39.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\ViewModels\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\ViewModels\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\ViewModels\\ErrorViewModel.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\ViewModels\\ErrorViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-02T00:04:27.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "StockPortfolioTrackerContext.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Data\\StockPortfolioTrackerContext.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Data\\StockPortfolioTrackerContext.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Data\\StockPortfolioTrackerContext.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Data\\StockPortfolioTrackerContext.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAewBQAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-01T21:39:16.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Dividend.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Dividend.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Models\\Dividend.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Models\\Dividend.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Models\\Dividend.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-04T14:45:23.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAqwAgAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-01T19:02:02.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\appsettings.json",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\appsettings.json",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\appsettings.json",
+              "RelativeToolTip": "StockPortfolioTracker\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-02-11T09:39:46.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-02T13:57:46.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-04T13:09:23.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-11T09:35:07.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAACMAAACA8KDcb0ErwDQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-02T13:31:11.869Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\_ViewStart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-11T09:33:15.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-10T18:39:55.092Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "StockPortfolioTracker\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-03T12:03:11.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "20240204124911_expanded-stock-model.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240204124911_expanded-stock-model.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240204124911_expanded-stock-model.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240204124911_expanded-stock-model.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240204124911_expanded-stock-model.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-04T14:42:56.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "20240131133345_user-wallet-stock-update-2.Designer.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240131133345_user-wallet-stock-update-2.Designer.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240131133345_user-wallet-stock-update-2.Designer.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240131133345_user-wallet-stock-update-2.Designer.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240131133345_user-wallet-stock-update-2.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-02T16:37:33.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "20240130002955_TestController.Designer.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240130002955_TestController.Designer.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240130002955_TestController.Designer.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240130002955_TestController.Designer.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240130002955_TestController.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-02T13:14:25.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "20240128133726_InitialCreate.Designer.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240128133726_InitialCreate.Designer.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240128133726_InitialCreate.Designer.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240128133726_InitialCreate.Designer.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240128133726_InitialCreate.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-02T13:13:26.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "20240203155600_temporary-deleted-currency.cs",
+              "DocumentMoniker": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240203155600_temporary-deleted-currency.cs",
+              "RelativeDocumentMoniker": "StockPortfolioTracker\\Migrations\\20240203155600_temporary-deleted-currency.cs",
+              "ToolTip": "C:\\Projects\\.NET\\StockPortfolioTracker\\StockPortfolioTracker\\Migrations\\20240203155600_temporary-deleted-currency.cs",
+              "RelativeToolTip": "StockPortfolioTracker\\Migrations\\20240203155600_temporary-deleted-currency.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-03T23:28:00.163Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 107,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c93a910a-0fa6-4307-93a4-f2bd61ec7828}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

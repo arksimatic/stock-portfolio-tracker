@@ -24,5 +24,19 @@ namespace StockPortfolioTracker.Helpers
             Currency[] allCurrencies = currencies.Concat(currenciesNotInDb).ToArray();
             return allCurrencies;
         }
+
+        public static Decimal CalculateCurrencyValue(Decimal value, Currency fromCurrency, Currency toCurrency)
+        {
+            if (fromCurrency.Code == toCurrency.Code)
+                return value;
+
+            Decimal fromCurrencyUSDRatio = fromCurrency.Code == CurrencyCode.USD ? 1 : fromCurrency.USDRatio;
+            Decimal toCurrencyUSDRatio = toCurrency.Code == CurrencyCode.USD ? 1 : toCurrency.USDRatio;
+
+            Decimal valueInUSD = value / fromCurrencyUSDRatio;
+            Decimal valueInToCurrency = valueInUSD * toCurrencyUSDRatio;
+
+            return valueInToCurrency;
+        }
     }
 }

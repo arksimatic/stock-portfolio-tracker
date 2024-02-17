@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
+using StockPortfolioTracker.Helpers;
 using StockPortfolioTracker.Models;
 using StockPortfolioTracker.Services.YahooApiService;
 using StockPortfolioTracker.ViewModels;
@@ -21,13 +22,7 @@ namespace StockPortfolioTracker.Controllers
         {
             List<WalletViewModel> walletsViewProxy = new();
             foreach (Wallet wallet in await _context.Wallet.ToListAsync())
-            {
-                var wallets_x_stocks = _context.Wallet_X_Stock.Where(wallet_x_stock => wallet_x_stock.WalletId == wallet.Id);
-                var stocks = _context.Stock.Where(stock => wallets_x_stocks.Any(wallet_x_stock => wallet_x_stock.StockId == stock.Id));
-                var dividends = _context.Dividend.Where(dividend => stocks.Any(stock => stock.Id == dividend.StockId)).ToArray();
-                var currencies = _context.Currency.ToArray();
-                walletsViewProxy.Add(new WalletViewModel(wallet, wallets_x_stocks.ToArray(), stocks.ToArray(), dividends, currencies));
-            }
+                walletsViewProxy.Add(WalletHelper.GetWalletViewModel(wallet.Id, _context));
             return View(walletsViewProxy);
         }
         #endregion Index
@@ -76,9 +71,7 @@ namespace StockPortfolioTracker.Controllers
         #region Edit
         public async Task<IActionResult> Edit(Int32 id)
         {
-            var wallet = await _context.Wallet.FindAsync(id);
-            var currencies =_context.Currency.ToArray();
-            var walletViewModel = new WalletViewModel(wallet, new Wallet_X_Stock[0], new Stock[0], new Dividend[0], currencies);
+            var walletViewModel = WalletHelper.GetWalletViewModel(id, _context);
             return View(walletViewModel);
         }
 

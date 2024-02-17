@@ -556,7 +556,6 @@ C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\st
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\scopedcss\bundle\StockPortfolioTracker.styles.css
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\scopedcss\projectbundle\StockPortfolioTracker.bundle.scp.css
-C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\StockPortfolioTracker.csproj.CopyComplete
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\StockPortfolioTracker.dll
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\refint\StockPortfolioTracker.dll
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\StockPortfolioTracker.pdb
@@ -603,3 +602,4 @@ C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\bin\Debug\net6.0\Sy
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\bin\Debug\net6.0\System.Threading.RateLimiting.dll
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\bin\Debug\net6.0\YahooQuotesApi.dll
 C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Projects\.NET\StockPortfolioTracker\StockPortfolioTracker\obj\Debug\net6.0\StockPor.B1C30DEE.Up2Date

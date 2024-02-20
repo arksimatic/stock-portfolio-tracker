@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Helpers;
@@ -44,19 +45,11 @@ public class WalletController : Controller
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(WalletStockViewModel walletStockViewModel)
         {
+            ModelState.Remove("Currency");
+            ModelState.Remove("WalletCurrency");
             if (ModelState.IsValid)
             {
-                var stock = _context.Stock.Where(stock => stock.Ticker == walletStockViewModel.Ticker && stock.StockExchange == walletStockViewModel.StockExchange).FirstOrDefault();
-                if (stock == null)
-                {
-                    stock = new Stock()
-                    {
-                        StockExchange = walletStockViewModel.StockExchange,
-                        Ticker = walletStockViewModel.Ticker,
-                    };
-                    _context.Add(stock);
-                    await _context.SaveChangesAsync();
-                }
+                var stock = await SaveStock(walletStockViewModel.Ticker, walletStockViewModel.StockExchange, walletStockViewModel.CurrencyCode);
                 Wallet_X_Stock wallet_X_tock = new Wallet_X_Stock()
                 {
                     WalletId = walletStockViewModel.WalletId,
@@ -88,18 +81,18 @@ public class WalletController : Controller
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(WalletStockViewModel walletStockViewModel)
         {
+            ModelState.Remove("Currency");
+            ModelState.Remove("WalletCurrency");
             if (ModelState.IsValid)
             {
-                var stock = _context.Stock.Where(stock => stock.Ticker == walletStockViewModel.Ticker && stock.StockExchange == walletStockViewModel.StockExchange).FirstOrDefault();
-                if(stock != null) // TODO: what if actually null?
-                {
-                    var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(walletStockViewModel.Wallet_X_StockId);
-                    wallet_x_stock.Shares = walletStockViewModel.Shares;
-                    wallet_x_stock.AverageShareCost = walletStockViewModel.AverageShareCost;
-                    wallet_x_stock.BuyDateTime = walletStockViewModel.BuyDateTime;
-                    _context.Update(wallet_x_stock);
-                    await _context.SaveChangesAsync();
-                }
+                var stock = await SaveStock(walletStockViewModel.Ticker, walletStockViewModel.StockExchange, walletStockViewModel.CurrencyCode);
+                var wallet_x_stock = await _context.Wallet_X_Stock.FindAsync(walletStockViewModel.Wallet_X_StockId);
+                wallet_x_stock.Shares = walletStockViewModel.Shares;
+                wallet_x_stock.AverageShareCost = walletStockViewModel.AverageShareCost;
+                wallet_x_stock.BuyDateTime = walletStockViewModel.BuyDateTime;
+                wallet_x_stock.StockId = stock.Id;
+                _context.Update(wallet_x_stock);
+                await _context.SaveChangesAsync();
 
                 return RedirectToWallet(walletStockViewModel.WalletId);
             }
@@ -127,6 +120,25 @@ public class WalletController : Controller
         public IActionResult RedirectToWallet(Int32 walletId)
         {
             return RedirectToAction("Index", "Wallet", new { walletId });
+        }
+
+        public async Task<Stock> SaveStock(String ticker, String stockExchange, String currencyCodeStr)
+        {
+            var currency = _context.Currency.Where(currency => currency.Code == (CurrencyCode)Enum.Parse(typeof(CurrencyCode), currencyCodeStr)).FirstOrDefault();
+            var stock = _context.Stock.Where(stock => stock.Ticker == ticker && stock.StockExchange == stockExchange && stock.CurrencyId == currency.Id).FirstOrDefault();
+            if (stock == null)
+            {
+                stock = new Stock()
+                {
+                    StockExchange = stockExchange,
+                    Ticker = ticker,
+                    CurrencyId = currency.Id
+                };
+                _context.Add(stock);
+                await _context.SaveChangesAsync();
+            }
+
+            return stock;
         }
     }
 }

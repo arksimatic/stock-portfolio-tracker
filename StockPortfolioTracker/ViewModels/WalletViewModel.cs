@@ -1,15 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using StockPortfolioTracker.Helpers;
-using StockPortfolioTracker.Models;
-using StockPortfolioTracker.Services.YahooApiService;
+﻿using StockPortfolioTracker.Models;
 
 namespace StockPortfolioTracker.ViewModels
 {
-    public class ChartData
-    {
-        public String StockName { get; set; }
-        public Decimal StockValue { get; set; }
-    }
     public class WalletViewModel
     {
         public Int32 WalletId { get; set; }

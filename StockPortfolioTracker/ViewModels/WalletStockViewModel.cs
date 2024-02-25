@@ -12,8 +12,10 @@ namespace StockPortfolioTracker.Models
         public String Ticker { get; set; }
 
         public Currency WalletCurrency { get; set; }
+        public String WalletCurrencyCode { get; set; }
         public Currency Currency { get; set; }
         public String CurrencyCode { get; set; }
+        public Boolean UseWalletCurrency { get; set; }
         public Int32 Shares { get; set; }
         public DateTime BuyDateTime { get; set; }
 
@@ -27,6 +29,6 @@ namespace StockPortfolioTracker.Models
         public Decimal CurrentShareValueInWalletCurrency { get; set; }
         public Decimal AverageTotalCostInWalletCurrency { get; set; }
         public Decimal CurrentTotalValueInWalletCurrency { get; set; }
-        public Decimal DividendSumInWalletCurrency { get; set; }
+        public Decimal DividendsSumInWalletCurrency { get; set; }
     }
 }

@@ -32,19 +32,20 @@ namespace StockPortfolioTracker.Helpers
                 Currency = stockCurrency,
                 CurrencyCode = stockCurrency.Code.ToString(),
                 WalletCurrency = walletCurrency,
+                WalletCurrencyCode = walletCurrency.Code.ToString(),
                 BuyDateTime = wallet_x_stock.BuyDateTime,
 
-                AverageShareCost = wallet_x_stock.AverageShareCost,
-                CurrentShareValue = stock.CurrentShareValue,
-                AverageTotalCost = wallet_x_stock.AverageShareCost * wallet_x_stock.Shares,
-                CurrentTotalValue = stock.CurrentShareValue * wallet_x_stock.Shares,
-                DividendsSum = dividendPerShare * wallet_x_stock.Shares,
+                AverageShareCost = Math.Round(wallet_x_stock.AverageShareCost, 4),
+                CurrentShareValue = Math.Round(stock.CurrentShareValue, 4),
+                AverageTotalCost = Math.Round(wallet_x_stock.AverageShareCost * wallet_x_stock.Shares, 4),
+                CurrentTotalValue = Math.Round(stock.CurrentShareValue * wallet_x_stock.Shares, 4),
+                DividendsSum = Math.Round(dividendPerShare * wallet_x_stock.Shares, 4),
 
-                AverageShareCostInWalletCurrency = CurrencyHelper.CalculateCurrencyValue(wallet_x_stock.AverageShareCost, stockCurrency, walletCurrency),
-                CurrentShareValueInWalletCurrency = CurrencyHelper.CalculateCurrencyValue(stock.CurrentShareValue, stockCurrency, walletCurrency),
-                AverageTotalCostInWalletCurrency = CurrencyHelper.CalculateCurrencyValue(wallet_x_stock.AverageShareCost * wallet_x_stock.Shares, stockCurrency, walletCurrency),
-                CurrentTotalValueInWalletCurrency = CurrencyHelper.CalculateCurrencyValue(stock.CurrentShareValue * wallet_x_stock.Shares, stockCurrency, walletCurrency),
-                DividendSumInWalletCurrency = CurrencyHelper.CalculateCurrencyValue(dividendPerShare * wallet_x_stock.Shares, stockCurrency, walletCurrency)
+                AverageShareCostInWalletCurrency = Math.Round(CurrencyHelper.CalculateCurrencyValue(wallet_x_stock.AverageShareCost, stockCurrency, walletCurrency), 4),
+                CurrentShareValueInWalletCurrency = Math.Round(CurrencyHelper.CalculateCurrencyValue(stock.CurrentShareValue, stockCurrency, walletCurrency), 4),
+                AverageTotalCostInWalletCurrency = Math.Round(CurrencyHelper.CalculateCurrencyValue(wallet_x_stock.AverageShareCost * wallet_x_stock.Shares, stockCurrency, walletCurrency), 4),
+                CurrentTotalValueInWalletCurrency = Math.Round(CurrencyHelper.CalculateCurrencyValue(stock.CurrentShareValue * wallet_x_stock.Shares, stockCurrency, walletCurrency), 4),
+                DividendsSumInWalletCurrency = Math.Round(CurrencyHelper.CalculateCurrencyValue(dividendPerShare * wallet_x_stock.Shares, stockCurrency, walletCurrency), 4),
             };
 
             return walletStockViewModel;
@@ -79,7 +80,7 @@ namespace StockPortfolioTracker.Helpers
 
                 CurrentValueInWalletCurrency = walletStockViewModels.Sum(walletStock => walletStock.CurrentTotalValueInWalletCurrency),
                 CostValueInWalletCurrency = walletStockViewModels.Sum(walletStock => walletStock.AverageTotalCostInWalletCurrency),
-                DividendsSumInWalletCurrency = walletStockViewModels.Sum(walletStock => walletStock.DividendSumInWalletCurrency),
+                DividendsSumInWalletCurrency = walletStockViewModels.Sum(walletStock => walletStock.DividendsSumInWalletCurrency),
 
                 ChartData = chartData
             };

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Helpers;
 using StockPortfolioTracker.Models;
@@ -47,6 +48,7 @@ public class WalletController : Controller
         {
             ModelState.Remove("Currency");
             ModelState.Remove("WalletCurrency");
+            ModelState.Remove("WalletCurrencyCode");
             if (ModelState.IsValid)
             {
                 var stock = await SaveStock(walletStockViewModel.Ticker, walletStockViewModel.StockExchange, walletStockViewModel.CurrencyCode);
@@ -83,6 +85,7 @@ public class WalletController : Controller
         {
             ModelState.Remove("Currency");
             ModelState.Remove("WalletCurrency");
+            ModelState.Remove("WalletCurrencyCode");
             if (ModelState.IsValid)
             {
                 var stock = await SaveStock(walletStockViewModel.Ticker, walletStockViewModel.StockExchange, walletStockViewModel.CurrencyCode);

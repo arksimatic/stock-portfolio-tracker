@@ -4,31 +4,13 @@
     ViewData["Title"] = "Wallets";
 }
 
-<style>
-    .table {
-        width: 100%;
-        table-layout: auto;
-    }
+@section Styles {
+    <link rel="stylesheet" href="~/css/wallets.css" />
+}
 
-    .actions {
-        width: 1px;
-        white-space: nowrap;
-    }
-    
-    .wallet-name, .wallet-value {
-        font-size: 2em;
-        font-weight: bold;
-    }
-
-    .table th {
-        font-size: 1.3em;
-        background-color: #f8f9fa;
-    }
-    
-    .table-striped tbody tr:nth-of-type(odd) {
-        background-color: rgba(0,0,0,.05);
-    }
-</style>
+@section Scripts {
+    <script src="~/js/wallets.js"></script>
+}
 
 <div class="container">
     <div class="row">
@@ -87,14 +69,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            var walletName = this.getAttribute('data-wallet-name');
-            if (!confirm(`Do you wish to delete wallet ${walletName}?`)) {
-                e.preventDefault();
-            }
-        });
-    });
-</script>

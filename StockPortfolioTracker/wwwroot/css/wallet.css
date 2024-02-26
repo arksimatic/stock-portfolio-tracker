@@ -1,0 +1,30 @@
+﻿.table {
+    width: 100%;
+    table-layout: auto;
+}
+
+.actions {
+    width: 1px;
+    white-space: nowrap;
+}
+
+.wallet-name, .wallet-value {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.table th {
+    font-size: 1.3em;
+    background-color: #f8f9fa;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05);
+}
+
+.stockValues {
+}
+
+.stockValuesInWalletCurrency {
+    display: none;
+}

@@ -1,12 +1,11 @@
 ﻿@model StockPortfolioTracker.ViewModels.WalletViewModel
 
+@{
+    ViewData["Title"] = "Create";
+}
+
 <div class="container">
     <h1 class="my-4 text-center">Create Wallet</h1>
-
-    @{
-        ViewData["Title"] = "Create";
-    }
-
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
@@ -33,9 +32,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

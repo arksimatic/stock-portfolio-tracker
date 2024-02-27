@@ -9,10 +9,8 @@
         public String StockExchange { get; set; }
         public String Ticker { get; set; }
 
-        public Currency WalletCurrency { get; set; }
-        public String WalletCurrencyCode { get; set; }
-        public Currency Currency { get; set; }
-        public String CurrencyCode { get; set; }
+        public CurrencyCode WalletCurrencyCode { get; set; }
+        public CurrencyCode CurrencyCode { get; set; }
         public Int32 Shares { get; set; }
         public DateTime BuyDateTime { get; set; }
 

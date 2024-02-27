@@ -27,10 +27,8 @@ namespace StockPortfolioTracker.Helpers
                 StockExchange = stock.StockExchange,
                 Ticker = stock.Ticker,
                 Shares = wallet_x_stock.Shares,
-                Currency = stockCurrency,
-                CurrencyCode = stockCurrency.Code.ToString(),
-                WalletCurrency = walletCurrency,
-                WalletCurrencyCode = walletCurrency.Code.ToString(),
+                CurrencyCode = stockCurrency.Code,
+                WalletCurrencyCode = walletCurrency.Code,
                 BuyDateTime = wallet_x_stock.BuyDateTime,
 
                 AverageShareCost = Math.Round(wallet_x_stock.AverageShareCost, 4),
@@ -62,7 +60,7 @@ namespace StockPortfolioTracker.Helpers
 
             List<ChartData> chartData = new List<ChartData>();
             foreach (var walletStock in walletStockViewModels)
-                chartData.Add(new ChartData { StockName = walletStock.Ticker, StockValue = walletStock.CurrentTotalValue });
+                chartData.Add(new ChartData { StockName = walletStock.Ticker, StockValue = walletStock.CurrentTotalValueInWalletCurrency });
 
             WalletViewModel walletViewModel = new WalletViewModel()
             {

@@ -26,16 +26,13 @@ public class WalletController : Controller
         #region Create
         public IActionResult Create(Int32 walletId)
         {
-            return View(new WalletStockViewModel() { WalletId = walletId});
+            return View(new WalletStockViewModel() { WalletId = walletId, BuyDateTime = DateTime.Now });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(WalletStockViewModel walletStockViewModel)
         {
-            ModelState.Remove("Currency");
-            ModelState.Remove("WalletCurrency");
-            ModelState.Remove("WalletCurrencyCode");
             if (ModelState.IsValid)
             {
                 var stock = await SaveStock(walletStockViewModel.Ticker, walletStockViewModel.StockExchange, walletStockViewModel.CurrencyCode);
@@ -70,9 +67,6 @@ public class WalletController : Controller
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(WalletStockViewModel walletStockViewModel)
         {
-            ModelState.Remove("Currency");
-            ModelState.Remove("WalletCurrency");
-            ModelState.Remove("WalletCurrencyCode");
             if (ModelState.IsValid)
             {
                 var stock = await SaveStock(walletStockViewModel.Ticker, walletStockViewModel.StockExchange, walletStockViewModel.CurrencyCode);
@@ -112,9 +106,9 @@ public class WalletController : Controller
             return RedirectToAction("Index", "Wallet", new { walletId });
         }
 
-        public async Task<Stock> SaveStock(String ticker, String stockExchange, String currencyCodeStr)
+        public async Task<Stock> SaveStock(String ticker, String stockExchange, CurrencyCode currencyCode)
         {
-            var currency = _context.Currency.Where(currency => currency.Code == (CurrencyCode)Enum.Parse(typeof(CurrencyCode), currencyCodeStr)).FirstOrDefault();
+            var currency = _context.Currency.Where(currency => currency.Code == currencyCode).FirstOrDefault();
             var stock = _context.Stock.Where(stock => stock.Ticker == ticker && stock.StockExchange == stockExchange && stock.CurrencyId == currency.Id).FirstOrDefault();
             if (stock == null)
             {

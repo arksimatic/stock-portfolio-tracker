@@ -3,9 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Helpers;
 using StockPortfolioTracker.Models;
-using StockPortfolioTracker.Services.YahooApiService;
 using StockPortfolioTracker.ViewModels;
-using YahooQuotesApi;
 
 namespace StockPortfolioTracker.Controllers
 {

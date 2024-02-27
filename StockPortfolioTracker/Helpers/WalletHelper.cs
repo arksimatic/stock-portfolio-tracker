@@ -1,8 +1,6 @@
-﻿using Microsoft.OpenApi.Services;
-using StockPortfolioTracker.Data;
+﻿using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Models;
 using StockPortfolioTracker.ViewModels;
-using System.Xml.Linq;
 
 namespace StockPortfolioTracker.Helpers
 {

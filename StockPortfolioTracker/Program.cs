@@ -1,8 +1,5 @@
 using System.Globalization;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Services.YahooApiService;
 

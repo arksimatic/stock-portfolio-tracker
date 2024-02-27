@@ -1,25 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Helpers;
 using StockPortfolioTracker.Models;
-using StockPortfolioTracker.Services.YahooApiService;
 using StockPortfolioTracker.ViewModels;
 
 namespace StockPortfolioTracker.Controllers
 {
-public class AxisLabelData
-{
-    public string x;
-    public double y;
-}
 public class WalletController : Controller
     {
         private readonly StockPortfolioTrackerContext _context;

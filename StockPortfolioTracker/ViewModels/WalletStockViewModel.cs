@@ -1,6 +1,4 @@
-﻿using StockPortfolioTracker.Services.YahooApiService;
-
-namespace StockPortfolioTracker.Models
+﻿namespace StockPortfolioTracker.Models
 {
     public class WalletStockViewModel
     {
@@ -15,7 +13,6 @@ namespace StockPortfolioTracker.Models
         public String WalletCurrencyCode { get; set; }
         public Currency Currency { get; set; }
         public String CurrencyCode { get; set; }
-        public Boolean UseWalletCurrency { get; set; }
         public Int32 Shares { get; set; }
         public DateTime BuyDateTime { get; set; }
 

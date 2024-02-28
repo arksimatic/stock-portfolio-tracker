@@ -2,6 +2,7 @@ using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using StockPortfolioTracker.Data;
 using StockPortfolioTracker.Services.YahooApiService;
+using Microsoft.AspNetCore.Identity;
 
 // Set the culture
 var cultureInfo = new CultureInfo("en-US");
@@ -13,6 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<StockPortfolioTrackerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StockPortfolioTrackerContext") ?? throw new InvalidOperationException("Connection string 'StockPortfolioTrackerContext' not found.")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<StockPortfolioTrackerContext>();
 
 // Add StockDataService to update stock data
 builder.Services.AddHostedService<StockDataService>();
@@ -34,8 +38,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
